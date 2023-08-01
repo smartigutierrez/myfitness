@@ -2,7 +2,6 @@
   <% if workout.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
-
       <ul>
         <% workout.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,18 +11,42 @@
   <% end %>
 
   <div>
+    <strong><%= form.label :date, class: "form-label" %></strong>
+    <%= form.date_field :date, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
     <%= form.label :exercise1, style: "display: block" %>
-    <%= form.text_field :exercise1 %>
+    <%= form.select :exercise1, Exercise::ALL_EXERCISES %>
   </div>
 
   <div>
     <%= form.label :exercise2, style: "display: block" %>
-    <%= form.text_field :exercise2 %>
+    <%= form.select :exercise2, Exercise::ALL_EXERCISES %>
   </div>
 
-  <div>
+    <div>
     <%= form.label :exercise3, style: "display: block" %>
-    <%= form.text_field :exercise3 %>
+    <%= form.select :exercise3, Exercise::ALL_EXERCISES %>
+  </div>
+  <div>
+    <%= form.label :exercise4, style: "display: block" %>
+    <%= form.select :exercise4, Exercise::ALL_EXERCISES %>
+  </div>
+
+    <div>
+    <%= form.label :exercise5, style: "display: block" %>
+    <%= form.select :exercise5, Exercise::ALL_EXERCISES %>
+  </div>
+
+    <div>
+    <%= form.label :exercise6, style: "display: block" %>
+    <%= form.select :exercise6, Exercise::ALL_EXERCISES %>
   </div>
 
   <div>

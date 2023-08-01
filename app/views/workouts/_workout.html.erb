@@ -1,17 +1,50 @@
 <div id="<%= dom_id workout %>">
-  <p>
-    <strong>Exercise1:</strong>
-    <%= workout.exercise1 %>
-  </p>
 
-  <p>
-    <strong>Exercise2:</strong>
-    <%= workout.exercise2 %>
-  </p>
+<article id="article">
 
-  <p>
-    <strong>Exercise3:</strong>
-    <%= workout.exercise3 %>
-  </p>
+<table role="grid">
+  <thead>
+    <tr>
+      <th scope="col"><%= workout.date %></th>
+      <th scope="col">Exercise</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Repetitions</th>
+      <th scope="col">Rest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <%# missing details on each exercise %>
+    <%# i want to implement sliders for all the remaining fields %>
+      <th scope="row">1</th>
+      <td><%= workout.exercise1 %></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><%= workout.exercise2 %></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td><%= workout.exercise3 %></td>
+    </tr>
+        <tr>
+      <th scope="row">4</th>
+      <td><%= workout.exercise4 %></td>
+    </tr>
+        <tr>
+      <th scope="row">5</th>
+      <td><%= workout.exercise5 %></td>
+    </tr>
+        <tr>
+      <th scope="row">6</th>
+      <td><%= workout.exercise6 %></td>
+    </tr>
+  </tbody>
+
+    </tr>
+  </tfoot>
+</table>
+
+</article>
 
 </div>
