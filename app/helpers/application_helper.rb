@@ -4,10 +4,10 @@ module ApplicationHelper
   end
 
   def options_for_sets_dropdown
-    (1..10).map { |sets| [sets.to_s, sets] }
+    (0..10).map { |sets| [sets.to_s, sets] }
   end
 
   def options_for_repetitions_dropdown
-    (1..20).map { |reps| [reps.to_s, reps] }
+    (0..20).map { |reps| [reps.to_s, reps] }
   end
 end

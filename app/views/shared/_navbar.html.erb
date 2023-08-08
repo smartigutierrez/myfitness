@@ -1,7 +1,11 @@
 <nav>
   <ul>
-      <li><%= link_to "Fitness", root_path  %></li>
-  </ul>
+  <li>
+<%= link_to root_path do %>
+  <%= image_tag 'icon.png', alt: 'Fitness Icon' %>
+<% end %>  
+</li>
+</ul>
   <ul>
       <li><%= link_to "Workouts", workouts_path %></li>
       <li><%= link_to "Exercise Library", exercises_path %></li>

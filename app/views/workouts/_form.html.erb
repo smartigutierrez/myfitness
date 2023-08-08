@@ -9,82 +9,40 @@
       </ul>
     </div>
   <% end %>
-<article>
-  <div>
-    <strong><%= form.label :date, class: "form-label" %></strong>
-    <%= form.date_field :date, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :exercise1, style: "display: block" %>
-    <%= form.select :exercise1, Exercise::ALL_EXERCISES %>
-    <label>Weight<input type="range" min="0" max="200" value="50">
-  </label>
-  </div>
-
-  <div>
-  <%= form.label :weight, style: "display: block" %>
-  <%= form.select :exercise1_weight, options_for_weight_dropdown %>
-</div>
-
-<div>
-  <%= form.label :sets, style: "display: block" %>
-  <%= form.select :exercise1_sets, options_for_sets_dropdown %>
-</div>
-
-<div>
-  <%= form.label :repetitions, style: "display: block" %>
-  <%= form.select :exercise1_reps, options_for_repetitions_dropdown %>
-</div>
-
-  <div>
-    <%= form.label :exercise2, style: "display: block" %>
-    <%= form.select :exercise2, Exercise::ALL_EXERCISES %>
-    <label>Weight<input type="range" min="0" max="200" value="50">
-  </label>
-  </div>
+  <article>
+    <div>
+      <strong><%= form.label :date, class: "form-label" %></strong>
+      <%= form.date_field :date, class: "form-control" %>
+    </div>
 
     <div>
-    <%= form.label :exercise3, style: "display: block" %>
-    <%= form.select :exercise3, Exercise::ALL_EXERCISES %>
-    <label>Weight<input type="range" min="0" max="200" value="50">
-  </label>
-  </div>
-  <div>
-    <%= form.label :exercise4, style: "display: block" %>
-    <%= form.select :exercise4, Exercise::ALL_EXERCISES %>
-    <label>Weight<input type="range" min="0" max="200" value="50">
-  </label>
-  </div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
 
-    <div>
-    <%= form.label :exercise5, style: "display: block" %>
-    <%= form.select :exercise5, Exercise::ALL_EXERCISES %>
-    <label>Weight<input type="range" min="0" max="200" value="50">
-  </label>
-  </div>
+    <% (1..6).each do |exercise_number| %>
+      <div>
+        <%= form.label "exercise#{exercise_number}", style: "display: block" %>
+        <%= form.select "exercise#{exercise_number}", Exercise::ALL_EXERCISES %>
+      </div>
 
-    <div>
-    <%= form.label :exercise6, style: "display: block" %>
-    <%= form.select :exercise6, Exercise::ALL_EXERCISES %>
-    <label>
-      Weight
-    <%= range_field :weight, min: 0, max: 200, value: 50, id: 'weightSlider' %>
-    <span id="weightValue">50</span> <!-- Display the selected value -->
-    </label>
-    <div>
-      <%= form.label :weight, style: "display: block" %>
-      <%= form.select :exercise1_weight, options_for_weight_dropdown %>
-  </div>
-  </div>
+      <div>
+        <%= form.label :weight, style: "display: block" %>
+        <%= form.select "exercise#{exercise_number}_weight", options_for_weight_dropdown %>
+      </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-  </article>
+      <div>
+        <%= form.label :sets, style: "display: block" %>
+        <%= form.select "exercise#{exercise_number}_sets", options_for_sets_dropdown %>
+      </div>
+
+      <div>
+        <%= form.label :repetitions, style: "display: block" %>
+        <%= form.select "exercise#{exercise_number}_reps", options_for_repetitions_dropdown %>
+      </div>
+    <% end %>
+</article>
+    <div>
+      <%= form.submit %>
+    </div>
 <% end %>
