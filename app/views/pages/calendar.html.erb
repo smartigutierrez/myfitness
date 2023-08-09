@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+<h1>My Progress</h1>    
+
+<article>
+  <% if @workout %>
+    <p>Date of Workout: <%= @workout.date %></p>
+  <% else %>
+    <p>No workout found.</p>
+  <% end %>
+</article>
