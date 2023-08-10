@@ -16,6 +16,14 @@ has_many :weights
     'Squat',
     'RDL',
     'Lunges',
-    'Jump Rope'
-  ].freeze
+    ].freeze
+
+  Cardio = [
+    '-',
+    'Jump Rope',
+    'Jogging',
+    'Biking',
+    'Walking',
+    'Sprinting'
+  ]
 end

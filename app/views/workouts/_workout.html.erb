@@ -58,9 +58,24 @@
       <td><%= workout.exercise6_reps %></td>
     </tr>
   </tbody>
+</table>
 
+<table role="grid">
+<thead>
+    <tr>
+      <th scope="col"><strong>Cardio</strong></th>
+      <th scope="col"><strong>Sets</strong></th>
+      <th scope="col"><strong>Duration</strong></th>
     </tr>
-  </tfoot>
+  </thead>
+
+   <tbody>
+    <tr>
+      <td><%= workout.cardio %></td>
+      <td><%= workout.cardio_sets %></td>
+      <td><%= "#{workout.round_time.to_s} minutes" %>
+    </td>
+    </tbody>
 </table>
 
 </article>

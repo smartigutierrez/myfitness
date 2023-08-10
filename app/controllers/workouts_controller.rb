@@ -73,7 +73,8 @@ class WorkoutsController < ApplicationController
         :exercise3, :exercise3_weight, :exercise3_reps, :exercise3_sets,
         :exercise4, :exercise4_weight, :exercise4_reps, :exercise4_sets,
         :exercise5, :exercise5_weight, :exercise5_reps, :exercise5_sets,
-        :exercise6, :exercise6_weight, :exercise6_reps, :exercise6_sets
+        :exercise6, :exercise6_weight, :exercise6_reps, :exercise6_sets,
+        :cardio, :round_time, :cardio_sets,
       )
     end
 

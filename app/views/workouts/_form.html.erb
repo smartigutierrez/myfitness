@@ -42,6 +42,27 @@
       </div>
     <% end %>
 </article>
+
+<article>
+    <div>
+      <%= form.label :cardio, style: "display: block" %>
+      <%= form.select :cardio, Exercise::Cardio %>
+    </div>
+
+<%# sets %>
+    <div> 
+      <%= form.label :cardio_sets, style: "display: block" %>
+      <%= form.select :cardio_sets, options_for_sets_dropdown %>
+    </div>
+
+<%# duration %>
+    <div>
+      <%= form.label :round_time, style: "display: block" %>
+      <%= form.select :round_time, options_for_cardio_duration %>
+    </div>
+
+</article>
+
     <div>
       <%= form.submit %>
     </div>

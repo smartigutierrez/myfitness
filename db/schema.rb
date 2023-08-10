@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_205841) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_10_212758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_205841) do
     t.string "exercise6"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "date"
+    t.date "date"
     t.float "exercise1_weight"
     t.integer "exercise1_reps"
     t.integer "exercise1_sets"
@@ -64,6 +64,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_205841) do
     t.float "exercise6_weight"
     t.integer "exercise6_reps"
     t.integer "exercise6_sets"
+    t.string "cardio"
+    t.string "round_time"
+    t.integer "cardio_sets"
   end
 
 end
