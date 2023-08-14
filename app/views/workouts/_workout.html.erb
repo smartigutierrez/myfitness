@@ -1,83 +1,53 @@
 <div id="<%= dom_id workout %>">
-
-<article id="article">
-
-<table role="grid">
-  <thead>
-    <tr>
-      <th scope="col"><strong><%= workout.date %> | <%= workout.name%></strong></th>
-      <th scope="col"><strong>Exercise</strong></th>
-      <th scope="col"><strong>Weight</strong></th>
-      <th scope="col"><strong>Sets</strong></th>
-      <th scope="col"><strong>Repetitions</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td><%= workout.exercise1 %></td>
-      <td><%= workout.exercise1_weight %></td>
-      <td><%= workout.exercise1_sets %></td>
-      <td><%= workout.exercise1_reps %></td>
-
-
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td><%= workout.exercise2 %></td>
-      <td><%= workout.exercise2_weight %></td>
-      <td><%= workout.exercise2_sets %></td>
-      <td><%= workout.exercise2_reps %></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td><%= workout.exercise3 %></td>
-      <td><%= workout.exercise3_weight %></td>
-      <td><%= workout.exercise3_sets %></td>
-      <td><%= workout.exercise3_reps %></td>
-    </tr>
+  <article id="article">
+    <table role="grid">
+      <hgroup>
+        <h3><strong><%= workout.name %></strong></h3>
+        <h2><strong><%= workout.date %></strong></h2>
+    </hgroup>
+      <thead>
         <tr>
-      <th scope="row">4</th>
-      <td><%= workout.exercise4 %></td>
-      <td><%= workout.exercise4_weight %></td>
-      <td><%= workout.exercise4_sets %></td>
-      <td><%= workout.exercise4_reps %></td>
-    </tr>
+          <th scope="col"><strong>Exercise</strong></th>
+          <th scope="col"><strong>Weight</strong></th>
+          <th scope="col"><strong>Sets</strong></th>
+          <th scope="col"><strong>Repetitions</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% (1..6).each do |exercise_number| %>
+          <% exercise_field = "exercise#{exercise_number}" %>
+          <% weight_field = "#{exercise_field}_weight" %>
+          <% sets_field = "#{exercise_field}_sets" %>
+          <% reps_field = "#{exercise_field}_reps" %>
+          <% if workout.send(exercise_field) != "-" %>
+            <tr>
+              <td><%= workout.send(exercise_field) %></td>
+              <td><%= workout.send(weight_field) %></td>
+              <td><%= workout.send(sets_field) %></td>
+              <td><%= workout.send(reps_field) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+    <table role="grid">
+      <thead>
         <tr>
-      <th scope="row">5</th>
-      <td><%= workout.exercise5 %></td>
-      <td><%= workout.exercise5_weight %></td>
-      <td><%= workout.exercise5_sets %></td>
-      <td><%= workout.exercise5_reps %></td>
-    </tr>
+          <th scope="col"><strong>Cardio</strong></th>
+          <th scope="col"><strong>Sets/Laps</strong></th>
+          <th scope="col"><strong>Duration</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if workout.cardio != "-" %>
         <tr>
-      <th scope="row">6</th>
-      <td><%= workout.exercise6 %></td>
-      <td><%= workout.exercise6_weight %></td>
-      <td><%= workout.exercise6_sets %></td>
-      <td><%= workout.exercise6_reps %></td>
-    </tr>
-  </tbody>
-</table>
-
-<table role="grid">
-<thead>
-    <tr>
-      <th scope="col"><strong>Cardio</strong></th>
-      <th scope="col"><strong>Sets</strong></th>
-      <th scope="col"><strong>Duration</strong></th>
-    </tr>
-  </thead>
-
-   <tbody>
-    <tr>
-      <td><%= workout.cardio %></td>
-      <td><%= workout.cardio_sets %></td>
-      <td><%= "#{workout.round_time.to_s} minutes" %>
-    </td>
-    </tbody>
-</table>
-
-</article>
-
+          <td><%= workout.cardio %></td>
+          <td><%= workout.cardio_sets %></td>
+          <td><%= "#{workout.round_time.to_s} minutes" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </article>
 </div>
