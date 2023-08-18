@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
-<h1>My Progress</h1>    
+<h1>My Progress</h1>
 
-<article>
-  <% if @workout %>
-    <p>Date of Workout: <%= @workout.date %></p>
-  <% else %>
-    <p>No workout found.</p>
-  <% end %>
-</article>
+<% @workouts.each do |workout| %>
+  <article>
+    <% if workout.exercise1_weight %>
+      <p>Date of Workout: <%= workout.date %></p>
+    <% else %>
+      <p>No workout found.</p>
+    <% end %>
+  </article>
+<% end %>
