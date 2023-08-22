@@ -1,12 +1,33 @@
 <p style="color: green"><%= notice %></p>
 <h1>My Progress</h1>
 
-<% @workouts.each do |workout| %>
-  <article>
-    <% if workout.exercise1_weight %>
-      <p>Date of Workout: <%= workout.date %></p>
-    <% else %>
-      <p>No workout found.</p>
+<% last_two_workouts = @workouts.last(2) %>
+
+<% if last_two_workouts.size == 2 %>
+  <h3>Last two workouts:</h3>
+
+  <% (1..6).each do |exercise_number| %>
+    <% exercise_name = Exercise::ALL_EXERCISES[exercise_number - 1] %>
+    <% exercise_data_1 = last_two_workouts[0]["exercise#{exercise_number}_weight"] %>
+    <% exercise_data_2 = last_two_workouts[1]["exercise#{exercise_number}_weight"] %>
+    <% exercise_sets_1 = last_two_workouts[0]["exercise#{exercise_number}_sets"] %>
+    <% exercise_sets_2 = last_two_workouts[1]["exercise#{exercise_number}_sets"] %>
+    <% exercise_reps_1 = last_two_workouts[0]["exercise#{exercise_number}_reps"] %>
+    <% exercise_reps_2 = last_two_workouts[1]["exercise#{exercise_number}_reps"] %>
+
+    <% if exercise_data_1.present? && exercise_data_1 != '-' && exercise_data_1.to_f > 0 &&
+         exercise_data_2.present? && exercise_data_2 != '-' && exercise_data_2.to_f > 0 &&
+         exercise_sets_1.to_i > 0 && exercise_sets_2.to_i > 0 &&
+         exercise_reps_1.to_i > 0 && exercise_reps_2.to_i > 0 %>
+         
+      <article>
+        <h3><%= exercise_name %></h3>
+        <%= compare_attributes("Weight", exercise_data_1, exercise_data_2) %>
+        <%= compare_attributes("Sets", exercise_sets_1, exercise_sets_2) %>
+        <%= compare_attributes("Repetitions", exercise_reps_1, exercise_reps_2) %>
+      </article>
     <% end %>
-  </article>
+  <% end %>
+<% else %>
+  <p>There are not enough workouts to compare.</p>
 <% end %>
