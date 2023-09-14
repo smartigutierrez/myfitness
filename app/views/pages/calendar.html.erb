@@ -5,7 +5,7 @@
 
 <% if last_two_workouts.size == 2 %>
   <h3>Last Two Workouts Comparison:</h3>
-
+<article>
   <table role="grid">
     <thead>
       <tr>
@@ -40,6 +40,7 @@
       <% end %>
     </tbody>
   </table>
+</article>
 <% else %>
   <p>There are not enough workouts to compare.</p>
 <% end %>
