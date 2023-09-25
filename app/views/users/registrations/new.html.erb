@@ -3,24 +3,21 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
-  <div>
-    <%= f.label :avatar,"Profile picture", style: "display: block" %>
-    <%= f.file_field :avatar, multiple: false, class: 'form-control' %>
-  </div>
+
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :height %> <br>
-    <%= f.number_field :height %>
-  </div>
+<div>
+  <%= f.label :height, style: "display: block" %>
+  <%= f.select :height, options_for_select(user_height) %>
+</div>
 
-    <div class="field">
-    <%= f.label :weight %> <br>
-    <%= f.number_field :weight %>
+  <div>
+    <%= f.label :weight, style: "display: block" %>
+    <%= f.select :weight, user_weight %>
   </div>
 
       <div class="field">
