@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 <h1>My Progress</h1>
 
+<h5>Current Weight:</h5>
+
 <% last_two_workouts = @workouts.last(2) %>
 
 <% if last_two_workouts.size == 2 %>

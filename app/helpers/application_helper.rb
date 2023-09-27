@@ -34,4 +34,5 @@ def user_avatar(user, size = 15)
   image_tag(avatar.presence || "avatar.jpg", size: "#{size}x#{size}!")
 end
 
+
 end

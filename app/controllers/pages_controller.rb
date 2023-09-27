@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   def about
   end
 
+  def random
+  end
+
   def calendar
     @workouts = Workout.all
   end

@@ -1,0 +1,15 @@
+<h1>Random Workouts</h1>
+
+ <!-- Pass a workout number, e.g., 1 -->
+ <article>
+<div class="grid">
+  <div><%= random_workout(1) %></div>
+  <div><%= random_workout(2) %></div>
+  <div><%= random_workout(3) %></div>
+</div>
+
+<%= button_to 'Generate Random Workout', pages_random_path, class: 'btn btn-primary' %>
+
+
+</article>
+
