@@ -1,0 +1,9 @@
+<nav>
+ <% if user_signed_in? %>
+              <li><%= link_to "Workouts", workouts_path %></li>
+              <li><%= link_to "My Progress", pages_calendar_path %></li>
+              <li><%= link_to "Random Workout",  pages_random_path %></li>
+                          <% else %>
+                <% end  %>
+</nav>
+
